@@ -28,17 +28,41 @@
 - Boltzmann machines and deep Boltzmann machines
 - gradient can sometimes be hard to change
 - Dont want the model to be relient on Markov Chain Monte Carlo (MCMC) methods
-- Some models can be trained by back propagation
+- Some models can be trained by back propagationss
 - The GSN framework uses this
 - Adversial nets framework do no require a Markov chain for sampling
 
-# Adversial nets
+## Adversial nets
 
 - easy to apply when the models are both multilayer perecptrons
 - Discriminator has a single output variable to decide the probability if it came from the generator or the real data
 - Train D to maximise the probability of assigning the correct label
 - Train G to minimise the log(1-D(G(z)))
 - G and D play a game of min max
+$min
+G
+max
+D
+V (D, G) = Ex∼pdata(x)
+[log D(x)] + Ez∼pz(z)
+[log(1 − D(G(z)))].$
+- To stop overfitting of one model, we alternate the training between k steps of optimising the D model and one step of optimising the G model
+- This causes D the be maintained near its optimal solution, as long as G changes slowly
+- However this can cuase G to not leran very well as the gradients are not high enough to cause effecient learning in the early stages
+- To fix this we can change the aim of G to not minimise the effectiveness of D but do maximise the errors of D
+- 
 
-
+### Figure 1
 ![screenshot of learning process for GAN](../ResearchPapers/GANsIllustration.png)
+
+- In figure 1 the dashed blue line is the Discriminator
+- This is done between samples from the real data (black line) and the Generator (green solid line)
+- a: At the start the Discriminator is random in its prediction as seen by the wavy blue ine.
+- b: After the first training of D, it can now classify between real and fake data well
+- c: After G is now trained, it shifts across to go to regions that are more likely to be classed as real data by the D
+- d: After several training loops the models will reach a point where they can't improve. G is now very similar to the real data and D cannot differentiate between the real and generated data
+- This can be seen as D(x) = 1/2 as it is guessing 50/50
+
+## Theoretical Results
+
+- 
