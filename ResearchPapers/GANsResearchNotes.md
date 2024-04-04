@@ -25,5 +25,20 @@
 
 ## Related Work
 
-- 
+- Boltzmann machines and deep Boltzmann machines
+- gradient can sometimes be hard to change
+- Dont want the model to be relient on Markov Chain Monte Carlo (MCMC) methods
+- Some models can be trained by back propagation
+- The GSN framework uses this
+- Adversial nets framework do no require a Markov chain for sampling
 
+# Adversial nets
+
+- easy to apply when the models are both multilayer perecptrons
+- Discriminator has a single output variable to decide the probability if it came from the generator or the real data
+- Train D to maximise the probability of assigning the correct label
+- Train G to minimise the log(1-D(G(z)))
+- G and D play a game of min max
+
+
+![screenshot of learning process for GAN](../ResearchPapers/GANsIllustration.png)
