@@ -63,7 +63,3 @@ V (D, G) = Ex∼pdata(x)
 - c: After G is now trained, it shifts across to go to regions that are more likely to be classed as real data by the D
 - d: After several training loops the models will reach a point where they can't improve. G is now very similar to the real data and D cannot differentiate between the real and generated data
 - This can be seen as D(x) = 1/2 as it is guessing 50/50
-
-## Theoretical Results
-
-- 
