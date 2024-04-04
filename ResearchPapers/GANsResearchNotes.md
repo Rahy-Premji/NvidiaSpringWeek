@@ -39,7 +39,7 @@
 - Train D to maximise the probability of assigning the correct label
 - Train G to minimise the log(1-D(G(z)))
 - G and D play a game of min max
-<div>
+- 
 $min
 G
 max
